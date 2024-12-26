@@ -9,7 +9,7 @@ export const homeRenderer = (function() {
     const createDescription = () => {
         const descCard = document.createElement("div");
         descCard.classList.add("home-desc")
-        descCard.textContent = "The true minimalistic experience, so minimal it doesn`t event exist";
+        descCard.textContent = "The true minimalistic experience, so minimal it doesn't even exist";
         return descCard
     }
 
