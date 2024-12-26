@@ -2,6 +2,8 @@
 import "./styles.css";
 import { navbarRenderer } from "./navbar";
 import { homeRenderer } from "./home";
+import { menuRenderer } from "./menu";
+import { contactRenderer } from "./contact";
 
 
 const screenManager = (function() {
@@ -32,10 +34,12 @@ const screenManager = (function() {
 
     const renderMenu = () => {
         clean()
+        menuRenderer.create(_frameContent);
     } 
 
     const renderContact = () => {
         clean()
+        contactRenderer.create(_frameContent)
     } 
 
     const renderNavbar = (navbar) => {

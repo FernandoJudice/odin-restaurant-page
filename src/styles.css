@@ -55,14 +55,24 @@ body {
     border-radius: 8px;
 }
 
-.home-title {
+.home-title, .menu-title {
     font-size: 5rem;
     margin: 16px;
     border-bottom: 4px var(--highlight-color) solid;
 }
 
-.home-desc {
+.home-desc, .menu-item {
     font-size: 2rem;
     text-align: center;
     padding: 48px;
+}
+
+.menu-item {
+    padding: 8px;
+}
+
+.contact-item {
+    font-size: 2rem;
+    text-align: center;
+    padding: 8px;
 }
