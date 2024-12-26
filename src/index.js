@@ -21,7 +21,7 @@ const screenManager = (function() {
     
     const clean = () => {
         while (_frameContent.firstChild){
-            _frameContent.removeChild(frameContent.firstChild);
+            _frameContent.removeChild(_frameContent.firstChild);
         }
     }
     
