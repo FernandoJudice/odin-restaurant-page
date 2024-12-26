@@ -8,7 +8,6 @@
 
 }
 
-
 body {
     background-image: url("img/minimalist-coffee.jpeg");
     background-size:  max(1920px,100%) max(1080px,100%);
@@ -23,12 +22,47 @@ body {
 }
 
 .nav-button {
-    background-color: var(--third-color);
+    background-color: var(--highlight-color);
+    color: white;
     margin: 16px;
     border: 0px;
+    border-radius: 8px;
     padding: 32px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
     min-width: 200px;
     font-size: 1.5rem;
-    /* color: white; */
+    font-weight: bold;
+}
+
+.main-frame,  .frame-content{
+    background-color: var(--third-color);
+    padding: 24px;
+    flex: 1;
+}
+
+.main-frame {
+    display: flex;
+    flex-direction: column;
+    min-height: 640px;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+.frame-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 8px var(--highlight-color) solid;
+    border-radius: 8px;
+}
+
+.home-title {
+    font-size: 5rem;
+    margin: 16px;
+    border-bottom: 4px var(--highlight-color) solid;
+}
+
+.home-desc {
+    font-size: 2rem;
+    text-align: center;
+    padding: 48px;
 }
