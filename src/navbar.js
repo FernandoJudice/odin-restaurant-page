@@ -6,5 +6,6 @@ export const navbarRenderer = (function() {
         button.addEventListener("click",callback)
         return button
     }
+
     return {createButton}
 })();

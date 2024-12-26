@@ -4,30 +4,52 @@ import { navbarRenderer } from "./navbar";
 import { homeRenderer } from "./home";
 
 
+const screenManager = (function() {
 
-function createCallback(text) {
-    const _text = text;
-    const callback = () => {alert(_text)};
-    return callback
-}
+    let _frameContent = null
 
-const createFrame = () => {
-    const mainFrame = document.createElement("div");
-    mainFrame.classList.add("main-frame");
-    const frameContent = document.createElement("div");
-    frameContent.classList.add("frame-content");
-    mainFrame.append(frameContent)
-    return {mainFrame, frameContent}
-}
+    const createFrame = (_content) => {
+        const mainFrame = document.createElement("div");
+        mainFrame.classList.add("main-frame");
+        const frameContent = document.createElement("div");
+        frameContent.classList.add("frame-content");
+        mainFrame.append(frameContent);
+        _frameContent = frameContent;
+        _content.appendChild(mainFrame);
+        return {mainFrame, frameContent}
+    }
+    
+    const clean = () => {
+        while (_frameContent.firstChild){
+            _frameContent.removeChild(frameContent.firstChild);
+        }
+    }
+    
+    const renderHome = () => {
+        clean()
+        homeRenderer.create(_frameContent);
+    }
+
+    const renderMenu = () => {
+        clean()
+    } 
+
+    const renderContact = () => {
+        clean()
+    } 
+
+    const renderNavbar = (navbar) => {
+        navbar.appendChild(navbarRenderer.createButton("Home",renderHome));
+        navbar.appendChild(navbarRenderer.createButton("Menu",renderMenu));
+        navbar.appendChild(navbarRenderer.createButton("Contact",renderContact));
+    }
+
+    return {createFrame,renderHome,renderMenu,renderContact, renderNavbar}
+})();
 
 
 const navbar = document.querySelector(".navbar")
 const content = document.querySelector(".content")
-const {mainFrame, frameContent} = createFrame();
-content.appendChild(mainFrame)
-
-navbar.appendChild(navbarRenderer.createButton("Home",createCallback("Home")));
-navbar.appendChild(navbarRenderer.createButton("Menu",createCallback("Menu")));
-navbar.appendChild(navbarRenderer.createButton("Contact",createCallback("Contact")));
-
-homeRenderer.create(frameContent);
+screenManager.renderNavbar(navbar)
+screenManager.createFrame(content);
+screenManager.renderHome();
